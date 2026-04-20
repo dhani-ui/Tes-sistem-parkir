@@ -52,9 +52,22 @@ Sistem secara proaktif berkomunikasi dengan pelanggan melalui WhatsApp:
 - Go (Golang)
 - Akun Fonnte (untuk fitur WA)
 
-### 1. Jalankan Backend (CRM Service)
+### 1. Jalankan Backend (Server akan berjalan di http://localhost:8080CRM Service)
 ```bash
 cd backend-parkir
 # Edit main.go dan masukkan Token Fonnte Anda
 go run main.go
+```
+Server akan berjalan di http://localhost:8080
 
+2. Jalankan Frontend
+cd sistem-parkir
+npm install
+npm run dev
+
+Aplikasi dapat diakses di http://localhost:5173
+
+​📸 Antarmuka Pengguna
+​Denah: Grid interaktif 5x10 per lantai.
+​Modal Form: Input data kendaraan yang bersih dan fokus.
+​Timer Card: Kartu kontrol aktif dengan fitur peringatan visual.
