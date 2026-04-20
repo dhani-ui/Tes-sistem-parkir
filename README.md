@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# 🏢 Sistem Manajemen Parkir Modern & CRM Otomatis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistem Manajemen Parkir berbasis web yang dirancang untuk efisiensi operasional tinggi. Dilengkapi dengan denah interaktif multi-lantai dan fitur **CRM WhatsApp Otomatis** untuk meningkatkan pengalaman pelanggan.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/Frontend-ReactJS-61DAFB?style=for-the-badge&logo=react)
+![Golang](https://img.shields.io/badge/Backend-Golang-00ADD8?style=for-the-badge&logo=go)
+![Tailwind](https://img.shields.io/badge/Styling-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Konva](https://img.shields.io/badge/Graphics-KonvaJS-333333?style=for-the-badge)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌟 Fitur Unggulan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. 🏗️ Arsitektur Multi-Lantai (Enterprise Scale)
+- Mendukung **5 Lantai** dengan total **250 Spot Parkir**.
+- Denah interaktif menggunakan **Konva.js** untuk performa rendering yang mulus.
+- Sistem navigasi tab lantai yang responsif.
 
-## Expanding the ESLint configuration
+### 2. ⏱️ Real-Time Monitoring
+- Timer parkir presisi dengan format **Jam : Menit : Detik**.
+- Dashboard ringkasan: Total Kapasitas, Spot Tersedia, dan Spot Terisi.
+- Indikator warna dinamis (Hijau: Tersedia, Merah: Terisi, Pink: Overtime).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 3. 🤖 CRM WhatsApp Automation (Integrasi Fonnte)
+Sistem secara proaktif berkomunikasi dengan pelanggan melalui WhatsApp:
+- **Digital Ticket:** Mengirim rincian spot dan plat nomor saat mobil masuk.
+- **Auto-Reminder:** Mengirim peringatan otomatis tepat **5 menit** sebelum durasi parkir habis.
+- **Manual Ping:** Fitur tombol lonceng (🔔) bagi petugas untuk memanggil pelanggan dalam kondisi darurat.
+- **Digital Receipt:** Mengirim struk tagihan otomatis saat sesi parkir berakhir (Checkout).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 4. 💰 Billing System
+- Perhitungan tarif otomatis: **Rp 3.000 / Jam**.
+- Pembulatan ke atas (Fixed hourly billing).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Teknologi yang Digunakan
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Frontend:** React.js, TypeScript, Vite.
+- **Graphics:** React-Konva (Canvas API).
+- **Backend (CRM Proxy):** Golang (Native Net/HTTP).
+- **Styling:** Tailwind CSS.
+- **Storage:** LocalStorage (Persistensi data antar sesi).
+- **API Gateway:** Fonnte WhatsApp API.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Cara Menjalankan
+
+### Persyaratan
+- Node.js & NPM
+- Go (Golang)
+- Akun Fonnte (untuk fitur WA)
+
+### 1. Jalankan Backend (CRM Service)
+```bash
+cd backend-parkir
+# Edit main.go dan masukkan Token Fonnte Anda
+go run main.go
+
